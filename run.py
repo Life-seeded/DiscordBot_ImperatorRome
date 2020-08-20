@@ -63,4 +63,4 @@ async def on_message(message):
 
 
 
-client.run(process.env.TOKEN)
+client.run(DISCORD_TOKEN)
