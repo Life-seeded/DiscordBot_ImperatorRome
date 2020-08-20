@@ -1,2 +1,2 @@
 discord.py
-github.py
+PyGithub 
