@@ -1,12 +1,14 @@
 import discord
+import github
 import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
 client = commands.Bot(command_prefix='+')
 TOKEN = os.getenv("DISCORD_TOKEN")
+USERNAME = os.getenv("DISCORD_USERNAME")
+PASSWORD = os.getenv("DISCORD_PASSWORD")
 #client = discord.Client()
-
 messages = tester = 0
 file = "testernum.txt"
 if os.path.isfile(file):
@@ -17,6 +19,9 @@ if os.path.isfile(file):
     print('Succesfully Read Testernum')
 else :
     print("I can't read Testernum")
+
+g = github.Github(USERNAME, PASSWORD)
+repo = g.get_user().get_repo("DiscordBot_ImperatorRome")
 
 @client.event
 async def on_ready():
@@ -38,6 +43,8 @@ async def _TesterRole(ctx, member: discord.Member=None):
             f = open(file, 'w')
             f.write(str(tester))
             f.close()
+            contents = repo.get_contents("testernum.txt", ref="blob")
+            repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
     else:
         await member.add_roles(get(ctx.guild.roles, name="테스터"))
         await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
@@ -46,6 +53,8 @@ async def _TesterRole(ctx, member: discord.Member=None):
         f = open(file, 'w')
         f.write(str(tester))
         f.close()
+        contents = repo.get_contents("testernum.txt", ref="master")
+        repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
 
 @client.command(name="테스터숫자", pass_context=True)
 async def _TesterRole(ctx, member: discord.Member=None):
@@ -61,7 +70,6 @@ async def on_message(message):
 
     if message.content.startswith('+Hello'):
         await message.channel.send('Hello, World!')
-
 
 
 if __name__ == "__main__":
