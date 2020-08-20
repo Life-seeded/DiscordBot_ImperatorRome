@@ -3,7 +3,7 @@ import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
-client = commands.Bot(command_prefix='!')
+client = commands.Bot(command_prefix='+)
 TOKEN = os.getenv("DISCORD_TOKEN")
 #client = discord.Client()
 
@@ -59,7 +59,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('!Hello'):
+    if message.content.startswith('+Hello'):
         await message.channel.send('Hello, World!')
 
 
