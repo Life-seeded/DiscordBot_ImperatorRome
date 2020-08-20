@@ -4,6 +4,7 @@ import os.path
 from discord.ext import commands
 from discord.utils import get
 client = commands.Bot(command_prefix='!')
+TOKEN = os.getenv("DISCORD_TOKEN")
 #client = discord.Client()
 
 messages = tester = 0
@@ -27,8 +28,8 @@ async def _TesterRole(ctx, member: discord.Member=None):
     member = ctx.message.author
     membername = member.nick
     if membername:
-        if membername.lower().count("테스터") > 0:
-            await ctx.channel.send(f"게이야 테스터 역할이 하나면 충분하지 뭘 더 원하노?")
+        if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0:
+            await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터` 중 하나가 있으면 테스터 역할을 추가로 얻을 수 없습니다.")
         else:
             await member.add_roles(get(ctx.guild.roles, name="테스터"))
             await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
@@ -63,4 +64,5 @@ async def on_message(message):
 
 
 
-client.run(DISCORD_TOKEN)
+if __name__ == "__main__":
+    client.run(TOKEN)
