@@ -3,7 +3,7 @@ import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
-client = commands.Bot(command_prefix='+)
+client = commands.Bot(command_prefix='+')
 TOKEN = os.getenv("DISCORD_TOKEN")
 #client = discord.Client()
 
