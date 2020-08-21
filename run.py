@@ -23,6 +23,8 @@ else :
 g = github.Github(USERNAME, PASSWORD)
 repo = g.get_user().get_repo("DiscordBot_ImperatorRome")
 
+await client.change_presence(activity=discord.Game(name='부서진 마천루 | ++help'))
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
