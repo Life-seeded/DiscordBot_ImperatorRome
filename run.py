@@ -62,11 +62,11 @@ async def _TesterRole(ctx, member: discord.Member=None):
     await ctx.channel.send(str(tester) + "명의 테스터들이 존재합니다.")
 
 @client.command(name="Hello", pass_context=True)
-async def _TesterRole(ctx, member: discord.Member=None):
+async def _HelloWorld(ctx, member: discord.Member=None):
     await ctx.channel.send("Hello, World!")
 
 @client.command(name="인삿말", pass_context=True)
-async def _TesterRole(ctx, member: discord.Member=None):
+async def _Notice(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"안녕하세요. 부서진 마천루에 오신것을 환영합니다.", description=f"", color=0xf3bb76)
     embed.add_field(name=f"해당 질문에 답변해 주시길 바랍니다.",value=f"1.들어온 경로를 말씀해주세요.\n2.들어온 이유를 말씀해주세요.",inline=False)
     embed.add_field(name=f"모드 테스트를 위한 안내사항.",value=f"모드 테스트 목적으로 오셨다면 +테스터를 쳐주시면 자동적으로 테스터 권한을 받을수 있습니다.",inline=False)
@@ -76,7 +76,7 @@ async def _TesterRole(ctx, member: discord.Member=None):
     await ctx.send(embed=embed)
 
 @client.command(name="help", pass_context=True)
-async def _TesterRole(ctx, member: discord.Member=None):
+async def _help(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"Imperator Rome Bot", description=f"임페라토르 롬 봇의 명령어를 출력합니다.", color=0xf3bb76)
     embed.set_author(name="Imperator Rome", url="", icon_url="https://upload.wikimedia.org/wikipedia/en/0/04/Imperator_Rome_logo.png")
     embed.add_field(name=f"+테스터",value=f"테스터 역할을 부여합니다.",inline=True)
