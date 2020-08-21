@@ -75,7 +75,7 @@ async def _Notice(ctx, member: discord.Member=None):
     embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await ctx.send(embed=embed)
 
-@client.command(name="help", pass_context=True)
+@client.command(name="+help", pass_context=True)
 async def _help(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"Imperator Rome Bot", description=f"임페라토르 롬 봇의 명령어를 출력합니다.", color=0xf3bb76)
     embed.set_author(name="Imperator Rome", url="", icon_url="https://upload.wikimedia.org/wikipedia/en/0/04/Imperator_Rome_logo.png")
