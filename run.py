@@ -75,7 +75,7 @@ async def _Notice(ctx, member: discord.Member=None):
     embed.add_field(name=f"#테스트팀",value=f"다른 테스터들과 대화 또는 게임상황 공유",inline=True)
     embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await ctx.send(embed=embed)
-    member = ctx.message.author
+    member = member or ctx.message.author
     await ctx.channel.send(f"{member.mention} 테스트를 하고 싶으시다면 `+테스터` 를 입력해 주세요.")
 
 @client.command(name="+help", pass_context=True)
