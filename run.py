@@ -34,8 +34,8 @@ async def _TesterRole(ctx, member: discord.Member=None):
     member = ctx.message.author
     membername = member.nick
     if membername:
-        if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0 or membername.lower().count(".إلله") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("번역기") > 0:
-            await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터`, `.إلله`, `관전`, `번역기` 중 하나가 있으면 테스터 역할을 추가로 얻을 수 없습니다.")
+        if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0 or membername.lower().count(".إلله") > 0 or membername.lower().count("임시") > 0:
+            await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터`, `.إلله`, `관전` 중 하나가 있으면 테스터 역할을 추가로 얻을 수 없습니다.")
         else:
             await member.add_roles(get(ctx.guild.roles, name="테스터"))
             await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
@@ -77,6 +77,10 @@ async def _Notice(ctx, member: discord.Member=None):
     await ctx.send(embed=embed)
     member = member or ctx.message.author
     await ctx.channel.send(f"{member.mention} 테스트를 하고 싶으시다면 `+테스터` 를 입력해 주세요.")
+
+@client.command(name="위키", pass_context=True)
+async def _wiki(ctx, member: discord.Member=None):
+    await ctx.channel.send("[공식 부서진 마천루 위키](https://fallenskyscrapper.fandom.com/ko/wiki/%EB%8C%80%EB%AC%B8)")
 
 @client.command(name="+help", pass_context=True)
 async def _help(ctx, member: discord.Member=None):
