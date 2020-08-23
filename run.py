@@ -80,7 +80,7 @@ async def _Notice(ctx, member: discord.Member=None):
 
 @client.command(name="위키", pass_context=True)
 async def _wiki(ctx, member: discord.Member=None):
-    await ctx.channel.send("[공식 부서진 마천루 위키](https://fallenskyscrapper.fandom.com/ko/wiki/%EB%8C%80%EB%AC%B8)")
+    embed.add_field(name='공식 부서진 마천루 위키', value='\n'+'[%s](<%s>)' % ('위키 주소', 'https://fallenskyscrapper.fandom.com/ko/wiki/%EB%8C%80%EB%AC%B8'), inline=False)
 
 @client.command(name="+help", pass_context=True)
 async def _help(ctx, member: discord.Member=None):
