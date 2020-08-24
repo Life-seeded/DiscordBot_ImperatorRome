@@ -74,9 +74,9 @@ async def _ObserverRole(ctx, member: discord.Member=None):
             await ctx.channel.send(f"{member.mention} 에게 관전 역할이 적용되었습니다.")
             await member.edit(nick="관전")
       else:
-        await member.add_roles(get(ctx.guild.roles, name="관전"))
-        await ctx.channel.send(f"{member.mention} 에게 관전 역할이 적용되었습니다.")
-        await member.edit(nick="관전")
+          await member.add_roles(get(ctx.guild.roles, name="관전"))
+          await ctx.channel.send(f"{member.mention} 에게 관전 역할이 적용되었습니다.")
+          await member.edit(nick="관전")
 
 @client.command(name="Hello", pass_context=True)
 async def _HelloWorld(ctx, member: discord.Member=None):
