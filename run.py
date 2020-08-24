@@ -93,7 +93,7 @@ async def _Notice(ctx, member: discord.Member=None):
     embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await ctx.send(embed=embed)
     member = member or ctx.message.author
-    await ctx.channel.send(f"{member.mention} 테스트를 하고 싶으시다면 `+테스터` 를 입력해 주세요.")
+    await ctx.channel.send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을, 테스트를 하고 싶으시다면 `+테스터` 를 입력해 주세요.")
 
 @client.command(name="위키", pass_context=True)
 async def _wiki(ctx, member: discord.Member=None):
