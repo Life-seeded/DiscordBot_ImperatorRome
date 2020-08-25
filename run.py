@@ -101,6 +101,12 @@ async def _wiki(ctx, member: discord.Member=None):
     embed.add_field(name='공식 부서진 마천루 위키', value='\n'+'[%s](<%s>)' % ('위키 주소', 'https://fallenskyscrapper.fandom.com/ko/wiki/%EB%8C%80%EB%AC%B8'), inline=False)
     await ctx.send(embed=embed)
 
+@client.command(name="드라이브", pass_context=True)
+async def _drive(ctx, member: discord.Member=None):
+    embed=discord.Embed(title= f"", description=f"", color=0xf3bb76)
+    embed.add_field(name='부서진 마천루 드라이브', value='\n'+'[%s](<%s>)' % ('드라이브 주소', 'https://drive.google.com/drive/folders/1nmw8kG9wMjvz2_pvQ3_C4cvIdTQ9oOnP?usp=sharing'), inline=False)
+    await ctx.send(embed=embed)
+
 @client.command(name="+help", pass_context=True)
 async def _help(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"Imperator Rome Bot", description=f"임페라토르 롬 봇의 명령어를 출력합니다.", color=0xf3bb76)
@@ -110,6 +116,7 @@ async def _help(ctx, member: discord.Member=None):
     embed.add_field(name=f"+관전",value=f"관전 역할을 부여합니다.",inline=True)
     embed.add_field(name=f"+인삿말 @유저이름",value=f"안내사항을 출력합니다.",inline=True)
     embed.add_field(name=f"+위키",value=f"공식 위키의 링크를 출력합니다.",inline=True)
+    embed.add_field(name=f"+드라이브",value=f"드라이브의 링크를 출력합니다.",inline=True)
     embed.add_field(name=f"+Hello",value=f"Hello, World!를 출력합니다.",inline=True)
     await ctx.send(embed=embed)
 
