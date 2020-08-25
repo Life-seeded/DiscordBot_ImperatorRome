@@ -108,7 +108,7 @@ async def _help(ctx, member: discord.Member=None):
     embed.add_field(name=f"+테스터",value=f"테스터 역할을 부여합니다.",inline=True)
     embed.add_field(name=f"+테스터숫자",value=f"테스터들의 숫자를 출력합니다.",inline=True)
     embed.add_field(name=f"+관전",value=f"관전 역할을 부여합니다.",inline=True)
-    embed.add_field(name=f"+인삿말",value=f"안내사항을 출력합니다.",inline=True)
+    embed.add_field(name=f"+인삿말 @유저이름",value=f"안내사항을 출력합니다.",inline=True)
     embed.add_field(name=f"+위키",value=f"공식 위키의 링크를 출력합니다.",inline=True)
     embed.add_field(name=f"+Hello",value=f"Hello, World!를 출력합니다.",inline=True)
     await ctx.send(embed=embed)
