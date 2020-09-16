@@ -104,7 +104,7 @@ async def _wiki(ctx, member: discord.Member=None):
 @client.command(name="드라이브", pass_context=True)
 async def _drive(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"", description=f"", color=0xf3bb76)
-    embed.add_field(name='부서진 마천루 드라이브', value='\n'+'[%s](<%s>)' % ('드라이브 주소', 'https://drive.google.com/drive/folders/1nmw8kG9wMjvz2_pvQ3_C4cvIdTQ9oOnP?usp=sharing'), inline=False)
+    embed.add_field(name='부서진 마천루 드라이브', value='\n'+'[%s](<%s>)' % ('드라이브 주소', 'https://drive.google.com/folderview?id=1dwgiw5rz2qMwaPnZ6NW_x3b89SeHH6sn'), inline=False)
     await ctx.send(embed=embed)
 
 @client.command(name="+help", pass_context=True)
