@@ -27,7 +27,8 @@ repo = g.get_user().get_repo("DiscordBot_ImperatorRome")
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(name='부서진 마천루 | ++help'))
-    
+   
+@client.event
 async def on_member_join(member): 
     embed=discord.Embed(title= f"안녕하세요. 부서진 마천루에 오신것을 환영합니다.", description=f"", color=0xf3bb76)
     embed.add_field(name=f"해당 질문에 답변해 주시길 바랍니다.",value=f"1.들어온 경로를 말씀해주세요.\n2.들어온 이유를 말씀해주세요.\n",inline=False)
@@ -37,7 +38,7 @@ async def on_member_join(member):
     #embed.add_field(name=f"#테스트팀",value=f"다른 테스터들과 대화 또는 게임상황 공유",inline=True)
     #embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await ctx.send(embed=embed)
-    await ctx.channel.send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
+    await ctx.channel.send(f"{0.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
 
 @client.command(name="테스터", pass_context=True)
 async def _TesterRole(ctx, member: discord.Member=None):
