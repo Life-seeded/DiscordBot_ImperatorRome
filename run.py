@@ -38,7 +38,7 @@ async def on_member_join(member):
     #embed.add_field(name=f"#테스트팀",value=f"다른 테스터들과 대화 또는 게임상황 공유",inline=True)
     #embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await ctx.send(embed=embed)
-    await ctx.channel.send(f"{0.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
+    await ctx.channel.send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
 
 @client.command(name="테스터", pass_context=True)
 async def _TesterRole(ctx, member: discord.Member=None):
