@@ -41,7 +41,7 @@ async def on_member_join(self, member):
     #embed.add_field(name=f"#테스트팀",value=f"다른 테스터들과 대화 또는 게임상황 공유",inline=True)
     #embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await self.client.get_channel(channel_id).send(embed=embed)
-    await self.client.get_channel(channel_id).send(f"{ment} has joined the server.")
+    await self.client.get_channel(channel_id).send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
 
 @client.event
 async def on_member_join(member): 
