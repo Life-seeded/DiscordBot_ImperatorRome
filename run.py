@@ -28,6 +28,19 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(name='부서진 마천루 | ++help'))
 
+@client.event
+async def on_member_join(ctx, *, member):
+    channel = member.server.get_channel("웰-깜")
+    embed=discord.Embed(title= f"안녕하세요. 부서진 마천루에 오신것을 환영합니다.", description=f"", color=0xf3bb76)
+    embed.add_field(name=f"해당 질문에 답변해 주시길 바랍니다.",value=f"1.들어온 경로를 말씀해주세요.\n2.들어온 이유를 말씀해주세요.\n",inline=False)
+    embed.add_field(name=f"모딩 관전을 위한 안내사항",value=f"모딩 관전 목적으로 오셨다면 `+관전`을 입력하여 자동적으로 관전 역할을 받을수 있습니다.\n",inline=False)
+    #embed.add_field(name=f"모드 테스트를 위한 안내사항",value=f"모드 테스트 목적으로 오셨다면 `+테스터`를 입력하여 자동으로 테스터 역할을 받을수 있습니다.\n",inline=False)
+    #embed.add_field(name=f"#테스터-안내사항",value=f"모드 설치 방법",inline=True)
+    #embed.add_field(name=f"#테스트팀",value=f"다른 테스터들과 대화 또는 게임상황 공유",inline=True)
+    #embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
+    await ctx.send_message(channel, embed=embed)
+    await ctx.send_message(channel, f"{0.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
+
 @commands.Cog.listener()
 async def on_member_join(self, member):
     ment = member.mention
