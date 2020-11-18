@@ -1,27 +1,27 @@
 import discord
-import github
+#import github
 import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
 client = commands.Bot(command_prefix='+')
 TOKEN = os.getenv("DISCORD_TOKEN")
-USERNAME = os.getenv("DISCORD_USERNAME")
-PASSWORD = os.getenv("DISCORD_PASSWORD")
-#client = discord.Client()
-messages = tester = 0
-file = "testernum.txt"
-if os.path.isfile(file):
-    f = open(file, 'r')
-    line = f.readline()
-    tester = int(line)
-    f.close()
-    print('Succesfully Read Testernum')
-else :
-    print("I can't read Testernum")
-
-g = github.Github(USERNAME, PASSWORD)
-repo = g.get_user().get_repo("DiscordBot_ImperatorRome")
+#USERNAME = os.getenv("DISCORD_USERNAME")
+#PASSWORD = os.getenv("DISCORD_PASSWORD")
+##client = discord.Client()
+#messages = tester = 0
+#file = "testernum.txt"
+#if os.path.isfile(file):
+#    f = open(file, 'r')
+#    line = f.readline()
+#    tester = int(line)
+#    f.close()
+#    print('Succesfully Read Testernum')
+#else :
+#    print("I can't read Testernum")
+#
+#g = github.Github(USERNAME, PASSWORD)
+#repo = g.get_user().get_repo("DiscordBot_ImperatorRome")
 
 @client.event
 async def on_ready():
@@ -40,39 +40,39 @@ async def on_member_join(member):
     await client.get_channel(643113605990055946).send(embed=embed)
     await client.get_channel(643113605990055946).send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
 
-@client.command(name="테스터", pass_context=True)
-async def _TesterRole(ctx, member: discord.Member=None):
-    global tester
-    member = member or ctx.message.author
-    membername = member.nick
-    if membername:
-        if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0 or membername.lower().count(".إلله") > 0 or membername.lower().count("번역기") or membername.lower().count("관전") > 0 or membername.lower().count("포트레잇") > 0:
-            await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터`, `.إلله`, `번역기`, `관전`, `포트레잇` 중 하나가 있으면 테스터 역할을 추가로 얻을 수 없습니다.")
-        else:
-            await member.add_roles(get(ctx.guild.roles, name="테스터"))
-            await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
-            tester += 1
-            await member.edit(nick="테스터" + str(tester))
-            f = open(file, 'w')
-            f.write(str(tester))
-            f.close()
-            contents = repo.get_contents("testernum.txt", ref="blob")
-            repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
-    else:
-        await member.add_roles(get(ctx.guild.roles, name="테스터"))
-        await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
-        tester += 1
-        await member.edit(nick="테스터" + str(tester))
-        f = open(file, 'w')
-        f.write(str(tester))
-        f.close()
-        contents = repo.get_contents("testernum.txt", ref="master")
-        repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
+#@client.command(name="테스터", pass_context=True)
+#async def _TesterRole(ctx, member: discord.Member=None):
+#    global tester
+#    member = member or ctx.message.author
+#    membername = member.nick
+#    if membername:
+#        if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0 or membername.lower().count(".إلله") > 0 or membername.lower().count("번역기") or membername.lower().count("관전") > 0 or membername.lower().count("포트레잇") > 0:
+#            await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터`, `.إلله`, `번역기`, `관전`, `포트레잇` 중 하나가 있으면 테스터 역할을 추가로 얻을 수 없습니다.")
+#        else:
+#            await member.add_roles(get(ctx.guild.roles, name="테스터"))
+#            await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
+#            tester += 1
+#            await member.edit(nick="테스터" + str(tester))
+#            f = open(file, 'w')
+#            f.write(str(tester))
+#            f.close()
+#            contents = repo.get_contents("testernum.txt", ref="blob")
+#            repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
+#    else:
+#        await member.add_roles(get(ctx.guild.roles, name="테스터"))
+#        await ctx.channel.send(f"{member.mention} 에게 테스터 역할이 적용되었습니다.")
+#        tester += 1
+#        await member.edit(nick="테스터" + str(tester))
+#        f = open(file, 'w')
+#        f.write(str(tester))
+#        f.close()
+#        contents = repo.get_contents("testernum.txt", ref="master")
+#        repo.update_file(contents.path, "auto commit", str(tester), contents.sha, branch="master")
 
-@client.command(name="테스터숫자", pass_context=True)
-async def _TesterRole(ctx, member: discord.Member=None):
-    global tester
-    await ctx.channel.send(str(tester) + "명의 테스터들이 존재합니다.")
+#@client.command(name="테스터숫자", pass_context=True)
+#async def _TesterRole(ctx, member: discord.Member=None):
+#    global tester
+#    await ctx.channel.send(str(tester) + "명의 테스터들이 존재합니다.")
 
 @client.command(name="관전", pass_context=True)
 async def _ObserverRole(ctx, member: discord.Member=None):
@@ -123,8 +123,8 @@ async def _drive(ctx, member: discord.Member=None):
 async def _help(ctx, member: discord.Member=None):
     embed=discord.Embed(title= f"Imperator Rome Bot", description=f"임페라토르 롬 봇의 명령어를 출력합니다.", color=0xf3bb76)
     embed.set_author(name="Imperator Rome", url="", icon_url="https://upload.wikimedia.org/wikipedia/en/0/04/Imperator_Rome_logo.png")
-    embed.add_field(name=f"+테스터",value=f"테스터 역할을 부여합니다.",inline=True)
-    embed.add_field(name=f"+테스터숫자",value=f"테스터들의 숫자를 출력합니다.",inline=True)
+#    embed.add_field(name=f"+테스터",value=f"테스터 역할을 부여합니다.",inline=True)
+#    embed.add_field(name=f"+테스터숫자",value=f"테스터들의 숫자를 출력합니다.",inline=True)
     embed.add_field(name=f"+관전",value=f"관전 역할을 부여합니다.",inline=True)
     embed.add_field(name=f"+인삿말 @유저이름",value=f"안내사항을 출력합니다.",inline=True)
     embed.add_field(name=f"+위키",value=f"공식 위키의 링크를 출력합니다.",inline=True)
