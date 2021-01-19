@@ -82,11 +82,11 @@ async def _ObserverRole(ctx, member: discord.Member=None):
         if membername.lower().count("테스터") > 0 or membername.lower().count("코더") > 0 or membername.lower().count("설정") > 0 or membername.lower().count("임시") > 0 or membername.lower().count("일러") > 0 or membername.lower().count("감사") > 0 or membername.lower().count("완장") > 0 or membername.lower().count("프린터") > 0 or membername.lower().count(".إلله") > 0 or membername.lower().count("번역기") or membername.lower().count("관전") > 0 or membername.lower().count("포트레잇") > 0:
             await ctx.channel.send("닉네임에 `테스터`, `코더`, `설정`, `임시`, `일러`, `감사`, `완장`, `프린터`, `.إلله`, `번역기`, `관전`, `포트레잇` 중 하나가 있으면 관전 역할을 추가로 얻을 수 없습니다.")
         else:
-            await member.add_roles(get(ctx.guild.roles, name="관전"))
+            await member.add_roles(get(ctx.guild.roles, name="관전(역할)"))
             await ctx.channel.send(f"{member.mention} 에게 관전 역할이 적용되었습니다.")
             await member.edit(nick="관전")
     else:
-        await member.add_roles(get(ctx.guild.roles, name="관전"))
+        await member.add_roles(get(ctx.guild.roles, name="관전(역할)"))
         await ctx.channel.send(f"{member.mention} 에게 관전 역할이 적용되었습니다.")
         await member.edit(nick="관전")
 
