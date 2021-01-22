@@ -4,9 +4,10 @@ import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
-intents = discord.Intents.default()
-intents.members = True
-client = commands.Bot(command_prefix='+', intents=intents)
+#intents = discord.Intents.default()
+#intents.members = True
+#client = commands.Bot(command_prefix='+', intents=intents)
+client = commands.Bot(command_prefix='+')
 TOKEN = os.getenv("DISCORD_TOKEN")
 #USERNAME = os.getenv("DISCORD_USERNAME")
 #PASSWORD = os.getenv("DISCORD_PASSWORD")
@@ -28,6 +29,7 @@ TOKEN = os.getenv("DISCORD_TOKEN")
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    print('discord' + discord.__version__)
     await client.change_presence(activity=discord.Game(name='부서진 마천루 | ++help'))
 
 @client.event
