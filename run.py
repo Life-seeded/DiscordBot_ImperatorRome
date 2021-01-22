@@ -4,7 +4,8 @@ import random
 import os.path
 from discord.ext import commands
 from discord.utils import get
-intents = discord.Intents(messages=True, guilds=True)
+intents = discord.Intents.default()
+intents.members = True
 client = commands.Bot(command_prefix='+', intents=intents)
 TOKEN = os.getenv("DISCORD_TOKEN")
 #USERNAME = os.getenv("DISCORD_USERNAME")
