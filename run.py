@@ -39,7 +39,8 @@ async def on_member_join(member):
     #embed.add_field(name=f"#버그-건의, #좆같은점, #그래픽문제들",value=f"문제점 건의나 버그 제보",inline=False)
     await client.get_channel(643113605990055946).send(embed=embed)
     await client.get_channel(643113605990055946).send(f"{member.mention} 관전을 하고 싶으시다면 `+관전` 을 입력해 주세요.")
-
+    print("New member joined")
+    
 #@client.command(name="테스터", pass_context=True)
 #async def _TesterRole(ctx, member: discord.Member=None):
 #    global tester
